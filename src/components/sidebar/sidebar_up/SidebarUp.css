@@ -1,0 +1,51 @@
+.sidebar {
+  padding-block: 8px;
+  padding-inline: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar_up {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  gap: 40px;
+  margin-bottom: 25px;
+}
+
+.brand_img {
+  cursor: pointer;
+}
+
+.sidebar_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.brand_name {
+  font-weight: 600;
+}
+
+.brand_workspace {
+  color: #b1a7a6;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.down_icon {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.divider {
+  border-color: gray;
+  margin: 0;
+}
