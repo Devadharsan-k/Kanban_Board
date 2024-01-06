@@ -1,0 +1,34 @@
+.header1_left {
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 50px;
+  border-bottom: 1px solid gray;
+}
+
+.job_roles {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.candidate_details {
+  display: flex;
+  gap: 15px;
+}
+
+.header1_right {
+  display: flex;
+  gap: 30px;
+}
+
+.header1_icons {
+  display: flex;
+  gap: 10px;
+}
+
+.header1_icon {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+}

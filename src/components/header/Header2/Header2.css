@@ -1,0 +1,23 @@
+.header2_left {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 50px;
+  border-bottom: 1px solid gray;
+}
+
+.input {
+  width: 28%;
+  padding: 6px;
+  padding-inline: 10px;
+}
+
+.btn_add_candidate {
+  height: 35px;
+}
+
+.header2_right {
+  display: flex;
+  gap: 12px;
+}

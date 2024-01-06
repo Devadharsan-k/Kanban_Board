@@ -1,0 +1,18 @@
+.segments {
+  padding-inline: 20px;
+  padding-block: 10px;
+  border-radius: 8px;
+}
+
+.ant-segmented-group {
+  display: flex;
+  gap: 25px;
+}
+
+.segments .ant-segmented-item-label {
+  font-weight: 600;
+}
+
+.segments .ant-segmented-item-label {
+  padding-inline: 7px;
+}
