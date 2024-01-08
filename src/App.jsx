@@ -5,23 +5,26 @@ import Sidebar from "./components/sidebar/Sidebar";
 import ListView from "./components/page_content/ListView/ListView";
 import GridView from "./components/page_content/GridView/GridView";
 import "./App.css";
+import { AppProvider } from "./AppProvider/AppProvider";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="page-layout">
-        <Sidebar />
-        <div className="main-content">
-          <Header />
-          <PageContent>
-            <Routes>
-              <Route path="/grid" element={<GridView />} />
-              <Route path="/list" element={<ListView />} />
-            </Routes>
-          </PageContent>
+    <AppProvider>
+      <BrowserRouter>
+        <div className="page-layout">
+          <Sidebar />
+          <div className="main-content">
+            <Header />
+            <PageContent>
+              <Routes>
+                <Route path="/grid" element={<GridView />} />
+                <Route path="/list" element={<ListView />} />
+              </Routes>
+            </PageContent>
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
 

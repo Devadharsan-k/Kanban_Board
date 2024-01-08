@@ -7,7 +7,21 @@ const PageContent = () => {
   const location = useLocation();
   const path = location.pathname;
 
-  return path === "/list" ? <ListView /> : <GridView />;
+  return (
+    <div
+      style={{
+        width: 1022,
+        height: 492,
+        overflowX: "auto",
+        overflowY: "hidden",
+        background: "#f8f9fa",
+      }}
+    >
+      <div style={{ display: "flex", width: "max-content" }}>
+        {path === "/list" ? <ListView /> : <GridView />}
+      </div>
+    </div>
+  );
 };
 
 export default PageContent;

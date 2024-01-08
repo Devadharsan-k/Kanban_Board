@@ -1,0 +1,52 @@
+.list_body {
+  margin: 15px;
+  width: 1000px;
+  padding-inline: 70px;
+  height: 60px;
+  line-height: 60px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+}
+
+.list_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list_left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.list_left_user {
+  display: flex;
+  flex-direction: column;
+}
+
+.list_name {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.list_city {
+  font-size: 15px;
+}
+
+.list_date {
+  font-size: 14px;
+  color: gray;
+}
+
+.list_right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.dlt_icon {
+  color: #e5383b;
+}

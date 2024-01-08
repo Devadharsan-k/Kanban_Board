@@ -1,7 +1,47 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContent } from "../../../AppProvider/AppProvider";
+import { Avatar, Progress } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+import "./ListView.css";
+import { Typography } from "antd";
+const { Text } = Typography;
 
 const ListView = () => {
-  return <div>ListView</div>;
+  const { users, setUsers } = useContext(AppContent);
+
+  const handleDelete = (user) => {
+    const update_user = users.filter((users) => users.id !== user.id);
+    setUsers(update_user);
+  };
+  return (
+    <div className="list_body">
+      {users.map((user) => (
+        <div key={user.id} className="list_content">
+          <div className="list_left">
+            <Avatar size={"large"}>{user.name.charAt(0)}</Avatar>
+            <div className="list_left_user">
+              <Text className="list_name" type="strong">
+                {user.name}
+              </Text>
+              <Text className="list_city" type="secondary">
+                {user.city}
+              </Text>
+            </div>
+          </div>
+          <div>
+            <p className="list_date">{new Date().toLocaleDateString()}</p>
+          </div>
+          <div className="list_right">
+            <Progress percent={60} />
+          </div>
+          <DeleteOutlined
+            onClick={() => handleDelete(user)}
+            className="dlt_icon"
+          />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default ListView;
