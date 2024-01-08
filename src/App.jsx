@@ -1,17 +1,27 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import PageContent from "./components/page_content/PageContent";
-import Siderbar from "./components/sidebar/Siderbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import ListView from "./components/page_content/ListView/ListView";
+import GridView from "./components/page_content/GridView/GridView";
 import "./App.css";
 
 function App() {
   return (
-    <div className="page-layout">
-      <Siderbar />
-      <div className="main-content">
-        <Header />
-        <PageContent />
+    <BrowserRouter>
+      <div className="page-layout">
+        <Sidebar />
+        <div className="main-content">
+          <Header />
+          <PageContent>
+            <Routes>
+              <Route path="/grid" element={<GridView />} />
+              <Route path="/list" element={<ListView />} />
+            </Routes>
+          </PageContent>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

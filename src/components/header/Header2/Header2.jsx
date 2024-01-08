@@ -1,3 +1,5 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   AppstoreOutlined,
   BarsOutlined,
@@ -6,10 +8,20 @@ import {
   UserAddOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Segmented } from "antd";
-import React from "react";
 import "./Header2.css";
 
 const Header2 = () => {
+  const navigate = useNavigate();
+
+  const handleRoute = (selectedValue) => {
+    console.log(selectedValue);
+    if (selectedValue === "List") {
+      navigate("/list");
+    } else if (selectedValue === "Kanban") {
+      navigate("/kanban");
+    }
+  };
+
   return (
     <div className="header2_left">
       <Input
@@ -26,17 +38,10 @@ const Header2 = () => {
         </Button>
         <Segmented
           options={[
-            {
-              label: "List",
-              value: "List",
-              icon: <BarsOutlined />,
-            },
-            {
-              label: "Kanban",
-              value: "Kanban",
-              icon: <AppstoreOutlined />,
-            },
+            { value: "Kanban", icon: <AppstoreOutlined /> },
+            { value: "List", icon: <BarsOutlined /> },
           ]}
+          onChange={handleRoute}
         />
       </div>
     </div>
