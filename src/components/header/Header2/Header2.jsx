@@ -12,10 +12,10 @@ import "./Header2.css";
 import { AppContent } from "../../../AppProvider/AppProvider";
 
 const Header2 = () => {
-  const { setCards, setUsers, cards } = useContext(AppContent);
+  const { setCards, setUsers, cards, searchValue, setSearchValue } =
+    useContext(AppContent);
   const [cardOpen, setCardOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
-  // const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const [userForm] = Form.useForm();
@@ -63,14 +63,18 @@ const Header2 = () => {
     cardForm.resetFields();
   };
 
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
+
   return (
     <div className="header2_left">
       <Input
         placeholder="Search Candidate..."
         prefix={<SearchOutlined />}
         className="input"
-        // onChange={handleSearch}
-        // value={searchValue}
+        onChange={handleSearch}
+        value={searchValue}
       />
       <div className="header2_right">
         <Button

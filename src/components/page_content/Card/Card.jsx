@@ -9,9 +9,13 @@ const Card = ({ card, handleDelete }) => {
     handleDelete(card.id);
   };
 
-  const { users } = useContext(AppContent);
+  const { users, searchValue } = useContext(AppContent);
 
   const cardUsers = users.filter((user) => user.cardId === card.id);
+
+  const filteredUsers = cardUsers.filter((user) =>
+    user.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   return (
     <div className="card">
@@ -32,7 +36,7 @@ const Card = ({ card, handleDelete }) => {
       </div>
       <div className="user_details">
         <div className="scrollable-content">
-          {cardUsers.map((user) => (
+          {filteredUsers.map((user) => (
             <UserCards key={user.id} user={user} />
           ))}
         </div>

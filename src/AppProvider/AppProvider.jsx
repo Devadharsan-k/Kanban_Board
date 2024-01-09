@@ -10,12 +10,15 @@ export const AppProvider = ({ children }) => {
     },
   ]);
   const [users, setUsers] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   const contextValue = {
     cards,
     users,
+    searchValue,
     setCards,
     setUsers,
+    setSearchValue,
   };
 
   return (

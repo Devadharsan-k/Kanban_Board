@@ -7,15 +7,20 @@ import { Typography } from "antd";
 const { Text } = Typography;
 
 const ListView = () => {
-  const { users, setUsers } = useContext(AppContent);
+  const { users, setUsers, searchValue } = useContext(AppContent);
 
   const handleDelete = (user) => {
     const update_user = users.filter((users) => users.id !== user.id);
     setUsers(update_user);
   };
+
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <div className="list_body">
-      {users.map((user) => (
+      {filteredUsers.map((user) => (
         <div key={user.id} className="list_content">
           <div className="list_left">
             <Avatar size={"large"}>{user.name.charAt(0)}</Avatar>

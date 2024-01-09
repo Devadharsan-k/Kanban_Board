@@ -13,7 +13,7 @@ const PageContent = () => {
         width: 1022,
         height: 492,
         overflowX: "auto",
-        overflowY: "hidden",
+        overflow: "auto",
         background: "#f8f9fa",
       }}
     >
