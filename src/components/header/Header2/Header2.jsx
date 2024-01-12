@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   AppstoreOutlined,
   BarsOutlined,
@@ -8,8 +8,8 @@ import {
   UserAddOutlined,
 } from "@ant-design/icons";
 import { Button, Form, Input, Modal, Segmented, message } from "antd";
-import "./Header2.css";
 import { AppContent } from "../../../AppProvider/AppProvider";
+import "./Header2.css";
 
 const Header2 = () => {
   const { setCards, setUsers, cards, searchValue, setSearchValue } =
@@ -66,6 +66,16 @@ const Header2 = () => {
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
   };
+
+  useEffect(() => {
+    const defaultValue = location.pathname === "/list" ? "list" : "kanban";
+
+    setDefaultValue(defaultValue);
+  }, [location.pathname]);
+
+  const [defaultValue, setDefaultValue] = useState(
+    location.pathname === "/list" ? "list" : "kanban"
+  );
 
   return (
     <div className="header2_left">
@@ -154,7 +164,7 @@ const Header2 = () => {
             { value: "list", icon: <BarsOutlined /> },
           ]}
           onChange={handleRoute}
-          defaultValue={location.pathname.substring(1)}
+          defaultValue={defaultValue}
         />
       </div>
     </div>

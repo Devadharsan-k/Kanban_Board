@@ -1,18 +1,22 @@
 .list_body {
   margin: 15px;
-  width: 1000px;
+  width: 975px;
   padding-inline: 70px;
   height: 60px;
   line-height: 60px;
   background-color: #e9ecef;
   border-radius: 10px;
-  height: 100%;
+  height: 100vh;
 }
 
 .list_content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 25px;
+  border: 1px solid gray;
+  padding-inline: 10px;
+  border-radius: 10px;
 }
 
 .list_left {
@@ -29,11 +33,11 @@
 
 .list_name {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .list_city {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .list_date {
