@@ -14,7 +14,6 @@ const ListView = () => {
     const updatedUsers = users.filter((u) => u.id !== user.id);
     setUsers(updatedUsers);
   };
-
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(searchValue.toLowerCase())
   );
