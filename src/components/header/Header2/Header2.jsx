@@ -22,7 +22,6 @@ const Header2 = () => {
   const [cardForm] = Form.useForm();
 
   const handleRoute = (selectedValue) => {
-    console.log(selectedValue);
     if (selectedValue === "list") {
       navigate("/list");
     } else if (selectedValue === "kanban") {

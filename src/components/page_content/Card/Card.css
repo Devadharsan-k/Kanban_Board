@@ -15,7 +15,7 @@
 
 .user_details {
   height: 360px;
-  margin-block: 25px;
+  margin-block: 15px;
   overflow: auto;
   scroll-behavior: smooth;
 }
@@ -38,8 +38,7 @@
 }
 
 .scrollable-content {
-  padding: 10px;
-  display: flex;
+  padding: 1px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
