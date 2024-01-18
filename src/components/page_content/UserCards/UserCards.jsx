@@ -7,10 +7,13 @@ import "./UserCards.css";
 import { AppContent } from "../../../AppProvider/AppProvider";
 
 const UserCards = ({ user }) => {
-  const { users, setUsers } = useContext(AppContent);
+  const { cards, setCards } = useContext(AppContent);
   const handleDeleteUser = () => {
-    const updatedUsers = users.filter((u) => u.id !== user.id);
-    setUsers(updatedUsers);
+    const updatedUsers = cards.map((card) => ({
+      ...card,
+      items: card.items.filter((u) => u.id !== user.id),
+    }));
+    setCards(updatedUsers);
   };
   return (
     <div className="user_card">

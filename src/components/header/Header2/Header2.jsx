@@ -10,10 +10,10 @@ import {
 import { Button, Form, Input, Modal, Segmented, message } from "antd";
 import { AppContent } from "../../../AppProvider/AppProvider";
 import "./Header2.css";
+import { v4 as uuidv4 } from "uuid";
 
 const Header2 = () => {
-  const { setCards, setUsers, cards, searchValue, setSearchValue } =
-    useContext(AppContent);
+  const { cards, setCards } = useContext(AppContent);
   const [cardOpen, setCardOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
   const navigate = useNavigate();
@@ -30,18 +30,28 @@ const Header2 = () => {
   };
 
   const AddedUser = (values) => {
-    const appliedCard = cards.find((card) => card.name === "Applied");
+    const appliedCardIndex = cards.findIndex((card) => card.name === "Applied");
 
-    if (appliedCard) {
-      setUsers((prevUsers) => [
-        ...prevUsers,
-        {
-          id: Date.now(),
-          name: values.username,
-          city: values.city,
-          cardId: appliedCard.id,
-        },
-      ]);
+    if (appliedCardIndex !== -1) {
+      setCards((prevCards) => {
+        return prevCards.map((card, index) => {
+          if (index === appliedCardIndex) {
+            return {
+              ...card,
+              items: [
+                ...card.items,
+                {
+                  id: uuidv4(),
+                  name: values.username,
+                  city: values.city,
+                },
+              ],
+            };
+          } else {
+            return card;
+          }
+        });
+      });
 
       setUserOpen(false);
       userForm.resetFields();
@@ -55,15 +65,12 @@ const Header2 = () => {
       {
         id: Date.now(),
         name: values.card_name,
+        items: [],
       },
     ]);
     setCardOpen(false);
     message.success("Card added successfully!");
     cardForm.resetFields();
-  };
-
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value);
   };
 
   useEffect(() => {
@@ -82,8 +89,6 @@ const Header2 = () => {
         placeholder="Search Candidate..."
         prefix={<SearchOutlined />}
         className="input"
-        onChange={handleSearch}
-        value={searchValue}
       />
       <div className="header2_right">
         <Button

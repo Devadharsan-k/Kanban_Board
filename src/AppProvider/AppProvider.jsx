@@ -1,24 +1,31 @@
 import React, { createContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const AppContent = createContext(null);
 
 export const AppProvider = ({ children }) => {
   const [cards, setCards] = useState([
     {
-      id: Date.now(),
+      id: uuidv4(),
       name: "Applied",
+      items: [
+        {
+          id: uuidv4(),
+          name: "deva",
+          city: "dpm",
+        },
+        {
+          id: uuidv4(),
+          name: "dharsan",
+          city: "cbe",
+        },
+      ],
     },
   ]);
-  const [users, setUsers] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
 
   const contextValue = {
     cards,
-    users,
-    searchValue,
     setCards,
-    setUsers,
-    setSearchValue,
   };
 
   return (
